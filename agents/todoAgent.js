@@ -2,9 +2,8 @@ const OpenAI = require('openai');
 const { todo } = require('../services/todoService')
 const { todoFunctions } = require('../functions/todoFunctions')
 
-// Initialize OpenAI client
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY, // Make sure to set this environment variable
+    apiKey: process.env.OPENAI_API_KEY,
 });
 
 module.exports.manageTodos = async (req, res) => {
@@ -62,7 +61,7 @@ module.exports.manageTodos = async (req, res) => {
                     {
                         role: 'function',
                         name: functionName,
-                        content: JSON.stringify(result)
+                        content: `Show all todos from given response ${JSON.stringify(result)}, the format should be #id #title`,
                     }
                 ]
             });
