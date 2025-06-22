@@ -1,5 +1,7 @@
 # AI-Powered Todo Application
 
+![AI-Powered Todo App](./ai-todos-app.png)
+
 This is a simple todo application that uses OpenAI's function calling feature to manage todos with natural language.
 
 ## About the Project
@@ -84,3 +86,7 @@ The smart agent allows you to manage your todos using natural language. Send a P
 *   [SQLite](https://www.sqlite.org/)
 *   [OpenAI](https://openai.com/)
 *   [EJS](https://ejs.co/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
