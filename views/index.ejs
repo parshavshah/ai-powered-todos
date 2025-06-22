@@ -1,11 +1,50 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chat & Todo App</title>
+  <link href="./stylesheets/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Chat Panel -->
+    <div class="chat-panel">
+      <div class="chat-header">
+        <h2>Smart Agent Chat</h2>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          <div class="message-content">Hello! I'm your smart todo agent. How can I help you today?</div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type your message..." />
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+
+    <!-- Todo Panel -->
+    <div class="todo-panel">
+      <div class="todo-header">
+        <h2>Todo List</h2>
+      </div>
+      <div class="todo-input">
+        <input type="text" id="todoInput" placeholder="Add a new todo..." />
+        <button id="addTodoButton">Add</button>
+      </div>
+      <div class="todo-list" id="todoList">
+        <div class="todo-item">
+          <input type="checkbox" id="todo1">
+          <label for="todo1">Sample todo item</label>
+          <button class="delete-btn">×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./javascripts/script.js"></script>
+</body>
 </html>

@@ -32,7 +32,7 @@ module.exports.todoFunctions = [
     },
     {
         name: 'listTodos',
-        description: 'List all todo items',
+        description: 'List all todo items with id',
         parameters: {
             type: 'object',
             properties: {}

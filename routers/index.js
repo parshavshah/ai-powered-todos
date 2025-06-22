@@ -12,4 +12,7 @@ router.get('/api/todos', todoController.listTodos);
 router.post('/api/todos', todoController.createTodo);
 router.delete('/api/todos/:id', todoController.deleteTodo);
 
+// view routes
+router.get('/', (req, res) => res.render('index'));
+
 module.exports = router;

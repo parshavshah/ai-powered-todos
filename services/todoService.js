@@ -35,11 +35,9 @@ const todoFunctions = {
             };
         }
 
-        const deletedTodo = todos.splice(todoIndex, 1)[0];
         return {
             success: true,
-            message: `Todo "${deletedTodo.title}" deleted successfully`,
-            deletedTodo
+            message: `Todo deleted successfully`,
         };
     },
 
