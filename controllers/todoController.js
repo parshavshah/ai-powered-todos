@@ -1,17 +1,20 @@
-const todoService = require('../services/todoService')
+const { todo: todoService } = require('../services/todoService')
 
-function listTodos(req, res) {
-    res.json(todoService.listTodos());
+async function listTodos(req, res) {
+    const result = await todoService.listTodos()
+    res.json(result);
 }
 
-function createTodo(req, res) {
+async function createTodo(req, res) {
     const { title, description } = req.body;
-    res.json(todoService.createTodo({ title, description }));
+    const result = await todoService.createTodo({ title, description })
+    res.json(result);
 }
 
-function deleteTodo(req, res) {
+async function deleteTodo(req, res) {
     const { id } = req.params;
-    res.json(todoService.deleteTodo({ id }));
+    const result =await todoService.deleteTodo({ id })
+    res.json(result);
 }
 
 

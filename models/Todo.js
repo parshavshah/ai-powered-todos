@@ -12,6 +12,6 @@ module.exports = (sequelize, DataTypes) => {
             sequelize,
             modelName: "Todo",
         }
-    ).sync({ force: true });
+    ).sync({ force: false });
     return Todo;
 };

@@ -44,7 +44,6 @@ const todoFunctions = {
     },
 
     listTodos: async () => {
-
         const todos = await Todo.findAll();
         return {
             success: true,
