@@ -1,4 +1,3 @@
-
 const { Todo } = require('../models');
 
 
@@ -17,7 +16,7 @@ const todoFunctions = {
     },
 
     deleteTodo: async ({ id }) => {
-        let result = -1;
+        let result = 0;
 
         if (id) {
             result = await Todo.destroy({
@@ -25,10 +24,9 @@ const todoFunctions = {
                     id
                 }
             })
-            console.log({ result })
         }
 
-        if (result === -1) {
+        if (result === 0) {
             return {
                 success: false,
                 message: 'Todo not found'
