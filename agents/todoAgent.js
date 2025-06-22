@@ -40,7 +40,7 @@ module.exports.manageTodos = async (req, res) => {
             const functionArgs = JSON.parse(responseMessage.function_call.arguments);
 
             // Execute the appropriate function
-            const result = todo[functionName](functionArgs);
+            const result = await todo[functionName](functionArgs);
 
             // Generate a natural language response
             const followUpResponse = await openai.chat.completions.create({

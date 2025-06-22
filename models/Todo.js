@@ -2,7 +2,7 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Todo extends Model {
-        static associate(models) {}
+        static associate(models) { }
     }
     Todo.init(
         {
@@ -12,6 +12,6 @@ module.exports = (sequelize, DataTypes) => {
             sequelize,
             modelName: "Todo",
         }
-    );
+    ).sync({ force: true });
     return Todo;
 };

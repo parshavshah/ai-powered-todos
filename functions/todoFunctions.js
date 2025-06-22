@@ -19,17 +19,13 @@ module.exports.todoFunctions = [
     },
     {
         name: 'deleteTodo',
-        description: 'Delete a todo item by ID or title. Provide either id or title parameter.',
+        description: 'Delete a todo item by ID.',
         parameters: {
             type: 'object',
             properties: {
                 id: {
                     type: 'string',
                     description: 'The ID of the todo item to delete'
-                },
-                title: {
-                    type: 'string',
-                    description: 'The title or partial title of the todo item to delete'
                 }
             }
         }

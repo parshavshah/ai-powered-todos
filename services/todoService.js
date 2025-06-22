@@ -1,20 +1,14 @@
 
-const uuidv4 = require('uuid').v4;
+const { Todo } = require('../models');
 
-// In-memory todo storage (use database in production)
-let todos = [];
 
 // Todo management functions
 const todoFunctions = {
-    createTodo: ({ title, description = '' }) => {
+    createTodo: async ({ title, }) => {
         const newTodo = {
-            id: uuidv4(),
-            title,
-            description,
-            completed: false,
-            createdAt: new Date().toISOString()
+            title
         };
-        todos.push(newTodo);
+        await Todo.create(newTodo);
         return {
             success: true,
             message: `Todo "${title}" created successfully`,
@@ -22,18 +16,19 @@ const todoFunctions = {
         };
     },
 
-    deleteTodo: ({ id, title }) => {
-        let todoIndex = -1;
+    deleteTodo: async ({ id }) => {
+        let result = -1;
 
         if (id) {
-            todoIndex = todos.findIndex(todo => todo.id === id);
-        } else if (title) {
-            todoIndex = todos.findIndex(todo =>
-                todo.title.toLowerCase().includes(title.toLowerCase())
-            );
+            result = await Todo.destroy({
+                where: {
+                    id
+                }
+            })
+            console.log({ result })
         }
 
-        if (todoIndex === -1) {
+        if (result === -1) {
             return {
                 success: false,
                 message: 'Todo not found'
@@ -48,7 +43,9 @@ const todoFunctions = {
         };
     },
 
-    listTodos: () => {
+    listTodos: async () => {
+
+        const todos = await Todo.findAll();
         return {
             success: true,
             message: `Found ${todos.length} todos`,
